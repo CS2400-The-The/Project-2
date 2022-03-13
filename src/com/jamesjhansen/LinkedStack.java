@@ -7,7 +7,7 @@ package com.jamesjhansen;
 public class LinkedStack<T> implements StackInterface<T> {
 
     /**
-     * LinkedStack instance variables
+     * instance variables
      */
     private Node topNode;
 
@@ -96,7 +96,7 @@ public class LinkedStack<T> implements StackInterface<T> {
     }
 
     /**
-     * checks whether or not the stack is empty
+     * checks whether the stack is empty
      * @return true if stack empty, false otherwise
      */
     @Override
