@@ -96,4 +96,21 @@ public class ArrayStack<T> implements StackInterface<T> {
             pop();
         }
     }
+
+    /**
+     * pretty-prints stack contents
+     */
+    @Override
+    public String toString() {
+        String output = "";
+        if (!isEmpty()) {
+            for (int i=0; i<this.stack.length; i++) {
+                if (this.stack[i] != null)
+                    output += this.stack[i] + ", ";
+            }
+        } else
+            System.out.println("Stack empty");
+
+        return output;
+    }
 }

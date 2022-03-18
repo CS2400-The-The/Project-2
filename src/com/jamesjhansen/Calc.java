@@ -3,7 +3,12 @@ package com.jamesjhansen;
 public class Calc {
 
     public static void main(String[] args) {
-	// write your code here
+        String infixExp = "2*3/(4-2)+5*6";
+        String postfixExp = convertToPostfix(infixExp);
+        int result = evaluatePostfix(postfixExp);
+        System.out.println("Infix Expression: " + infixExp);
+        System.out.println("Converted to Postfix: " + postfixExp);
+        System.out.println("Result: " + result);
     }
 
     /**
@@ -16,8 +21,6 @@ public class Calc {
             return 1;
         else if (ch == '*' || ch == '/')
             return 2;
-        else if (ch == '^')
-            return 3;
         else
             return 0;
     }
@@ -51,11 +54,47 @@ public class Calc {
                 }
             }
         } else
-            postfixExp = "input string empty!";
+            postfixExp = "input expression empty!";
 
         while (!charStack.isEmpty()) {
             postfixExp += charStack.pop();
         }
         return postfixExp;
     }
+
+    /**
+     * evaluates integer expression in postfix form
+     * @param postfixExp String: arithmetic expression in postfix form
+     * @return int: result of evaluation
+     */
+    public static int evaluatePostfix(String postfixExp) {
+        ArrayStack<Integer> intStack = new ArrayStack<>();
+        char[] chars = postfixExp.toCharArray();
+
+        if (!postfixExp.isEmpty()) {
+            for (char ch: chars) {
+                if (Character.isDigit(ch))
+                    intStack.push(Character.getNumericValue(ch));
+                else {
+                    int a = intStack.pop();
+                    int b = intStack.pop();
+                    switch (ch) {
+                        case '+': intStack.push(a+b);
+                        break;
+                        case '-': intStack.push(b-a);
+                        break;
+                        case '*': intStack.push(a*b);
+                        break;
+                        case '/': intStack.push(b/a);
+                        break;
+                    }
+                }
+            }
+           return intStack.pop();
+        } else {
+            System.out.println("input expression empty!");
+            return 0;
+        }
+    }
+
 }
