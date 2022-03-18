@@ -1,7 +1,14 @@
 package com.jamesjhansen;
 
+/**
+ * contains methods convertToPostfix and evaluatePostfix as well as a demo of their usage
+ */
 public class Calc {
 
+    /**
+     * demonstrates basic usage of postfix methods
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
         String infixExp = "2*3/(4-2)+5*6";
         String postfixExp = convertToPostfix(infixExp);
