@@ -1,5 +1,8 @@
 package com.jamesjhansen;
 
+/**
+ * interface for stack ADT
+ */
 public interface StackInterface<T> {
     /** Adds a new entry to the top of this stack.
      @param newEntry an object to be added to the stack */
