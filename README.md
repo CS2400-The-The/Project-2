@@ -12,6 +12,8 @@ Contributions
 - Daniel Pasion:
   Completed answer sheet 
 
-Video: 
+Extra: handle exponents
 
-Javadocs: 
+Video: https://youtu.be/XveY-bz6UZg
+
+Javadocs: https://cs2400-the-the.github.io/Project-2/
